@@ -2,42 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/05/09/dxc-cas/</loc>
+    <loc>https://dcghx.github.io/categories/index.html</loc>
     
-    <lastmod>2020-05-28T15:31:55.399Z</lastmod>
+    <lastmod>2020-05-29T17:31:51.588Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/05/09/dxc-lock/</loc>
+    <loc>https://dcghx.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-05-29T17:31:51.588Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dcghx.github.io/2020/05/09/jvm-2-ljz/</loc>
+    
+    <lastmod>2020-05-29T16:31:28.019Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dcghx.github.io/2020/05/09/jvm-1/</loc>
+    
+    <lastmod>2020-05-29T15:15:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dcghx.github.io/2020/05/09/dxc-cas/</loc>
+    
+    <lastmod>2020-05-29T14:29:20.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dcghx.github.io/2020/05/09/dxc-lock/</loc>
     
     <lastmod>2020-05-28T14:31:42.269Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/05/09/dxc-aqs/</loc>
+    <loc>https://dcghx.github.io/2020/05/09/dxc-aqs/</loc>
     
     <lastmod>2020-05-28T14:30:22.529Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/05/09/dxc-synchronized/</loc>
+    <loc>https://dcghx.github.io/2020/05/09/dxc-synchronized/</loc>
     
     <lastmod>2020-05-28T14:25:47.881Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/05/09/dxc-msg/</loc>
+    <loc>https://dcghx.github.io/2020/05/09/dxc-msg/</loc>
     
     <lastmod>2020-05-27T16:16:58.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/05/09/dxc-threadlocal/</loc>
+    <loc>https://dcghx.github.io/2020/05/09/dxc-threadlocal/</loc>
     
     <lastmod>2020-05-27T14:19:12.636Z</lastmod>
     
