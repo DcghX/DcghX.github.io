@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>springCloud————什么是springCloud | 酱油村-记事录</title><meta name="description" content="1.何为微服务1.1传统单体架构传统单体架构在小微企业比较常见，典型代表就是一个应用、一个数据库、一个web容器就可以跑起来。    可以从上图看出，单体架构基本上就是如上所说的：一个应用，一个数据库，一个web容器，里面集成了所有的功能。这在小型项目里面时比较好维护的，毕竟功能不多，也不复杂，但扩展性和可靠性比较差，因为所有功能集成在一个服务或者一个war包中，修改某个功能时，需要所有服务重新打"><meta name="keywords" content="springCloud"><meta name="author" content="酱油君"><meta name="copyright" content="酱油君"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="springCloud————什么是springCloud"><meta name="twitter:description" content="1.何为微服务1.1传统单体架构传统单体架构在小微企业比较常见，典型代表就是一个应用、一个数据库、一个web容器就可以跑起来。    可以从上图看出，单体架构基本上就是如上所说的：一个应用，一个数据库，一个web容器，里面集成了所有的功能。这在小型项目里面时比较好维护的，毕竟功能不多，也不复杂，但扩展性和可靠性比较差，因为所有功能集成在一个服务或者一个war包中，修改某个功能时，需要所有服务重新打"><meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="og:type" content="article"><meta property="og:title" content="springCloud————什么是springCloud"><meta property="og:url" content="https://dcghx.github.io/2020/05/09/springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud/"><meta property="og:site_name" content="酱油村-记事录"><meta property="og:description" content="1.何为微服务1.1传统单体架构传统单体架构在小微企业比较常见，典型代表就是一个应用、一个数据库、一个web容器就可以跑起来。    可以从上图看出，单体架构基本上就是如上所说的：一个应用，一个数据库，一个web容器，里面集成了所有的功能。这在小型项目里面时比较好维护的，毕竟功能不多，也不复杂，但扩展性和可靠性比较差，因为所有功能集成在一个服务或者一个war包中，修改某个功能时，需要所有服务重新打"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2020-05-09T03:15:27.000Z"><meta property="article:modified_time" content="2020-06-01T14:33:10.520Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://dcghx.github.io/2020/05/09/springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud/"><link rel="prev" title="spring-boot(3)————Mybatis-plus" href="https://dcghx.github.io/2020/05/09/springboot-%EF%BC%883%EF%BC%89Mybatis-plus%E7%9A%84%E9%9B%86%E6%88%90%E5%92%8C%E4%BD%BF%E7%94%A8/"><link rel="next" title="springCloud————服务注册于发现Eureka" href="https://dcghx.github.io/2020/05/09/springcloud-(2)%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0Eureka/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="酱油村-记事录" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">27</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-何为微服务"><span class="toc-number">1.</span> <span class="toc-text">1.何为微服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1传统单体架构"><span class="toc-number">1.1.</span> <span class="toc-text">1.1传统单体架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2服务化-SOA-架构"><span class="toc-number">1.2.</span> <span class="toc-text">1.2服务化(SOA)架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-微服务架构"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 微服务架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-什么是SpringCloud"><span class="toc-number">2.</span> <span class="toc-text">2.什么是SpringCloud</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-为何选择SpringCloud"><span class="toc-number">3.</span> <span class="toc-text">3.为何选择SpringCloud</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1与Dubbo对比"><span class="toc-number">3.1.</span> <span class="toc-text">3.1与Dubbo对比</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">酱油村-记事录</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">springCloud————什么是springCloud</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-09 11:15:27"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-05-09</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-06-01 22:33:10"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-06-01</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="1-何为微服务"><a href="#1-何为微服务" class="headerlink" title="1.何为微服务"></a>1.何为微服务</h1><h2 id="1-1传统单体架构"><a href="#1-1传统单体架构" class="headerlink" title="1.1传统单体架构"></a>1.1传统单体架构</h2><p>传统单体架构在小微企业比较常见，典型代表就是一个应用、一个数据库、一个web容器就可以跑起来。</p>
+<a id="more"></a>
+
+<p><img src="springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud.assets/image-20200601222538459.png" alt="image-20200601222538459"></p>
+<p>可以从上图看出，单体架构基本上就是如上所说的：一个应用，一个数据库，一个web容器，里面集成了所有的功能。这在小型项目里面时比较好维护的，毕竟功能不多，也不复杂，但扩展性和可靠性比较差，因为所有功能集成在一个服务或者一个war包中，修改某个功能时，需要所有服务重新打包。可能前期开发比较快，后期随着功能的增长，交互的周期会越变越长的。</p>
+<h2 id="1-2服务化-SOA-架构"><a href="#1-2服务化-SOA-架构" class="headerlink" title="1.2服务化(SOA)架构"></a>1.2服务化(SOA)架构</h2><p>SOA代表面向服务的架构，将应用程序根据不同的职责划分为不同的模块，不同的模块直接通过特定的协议和接口进行交互。这样使整个系统切分成很多单个组件服务来完成请求，当流量过大时通过水平扩展相应的组件来支撑，所有的组件通过交互来满足整体的业务需求。</p>
+<p>SOA服务化的优点是，它可以根据需求通过网络对松散耦合的粗粒度应用组件进行分布式部署、组合和使用。服务层是SOA的基础，可以直接被应用调用，从而有效控制系统中与软件代理交互的人为依赖性。</p>
+<p>服务化架构是一套松耦合的架构，服务的拆分原则是服务内部高内聚，服务之间低耦合。</p>
+<p>一般上我们使用dubbo来进行服务的治理功能，没有使用SpringCloud之前，基本上都是使用dubbo来拆分服务，进行服务间的调用。</p>
+<p>看下服务化架构的架构图：</p>
+<p><img src="springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud.assets/image-20200601222800974.png" alt="image-20200601222800974"></p>
+<p>可以发现从单体架构到服务化架构，应用数量都在不断的增加，慢慢的下沉的就成了基础组建，上浮的就成为业务系统。从上述也可以看出架构的本质就是不断的拆分重构：分的过程是把系统拆分为各个子系统/模块/组件，拆的时候，首先要解决每个组件的定位问题，然后才能划分彼此的边界，实现合理的拆分。合就是根据最终要求，把各个分离的组件有机整合在一起。拆分的结果使开发人员能够做到业务聚焦、技能聚焦，实现开发敏捷，合的结果是系统变得柔性，可以因需而变，实现业务敏捷。</p>
+<p>其实，我觉得最核心还是边界拆分。如何拆，拆的颗粒度要多细，就很考验一个架构师对业务和底层技术的掌控程度。一个好的架构师，会让整个系统边界清晰，泾渭分明，功能没有多少重叠的。</p>
+<h2 id="1-3-微服务架构"><a href="#1-3-微服务架构" class="headerlink" title="1.3 微服务架构"></a>1.3 微服务架构</h2><p>简单来说，微服务架构是 SOA 架构思想的一种扩展，更加强调服务个体的独立性、拆分粒度更小。</p>
+<p><img src="springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud.assets/image-20200601222907184.png" alt="image-20200601222907184"></p>
+<p>其实服务化架构已经可以解决大部分企业的需求了，那么我们为什么要研究微服务呢？先说说它们的区别：</p>
+<ul>
+<li><p>微服务架构强调业务系统需要彻底的组件化和服务化，一个组件就是一个产品，可以独立对外提供服务</p>
+</li>
+<li><p>微服务不再强调传统SOA架构里面比较重的ESB企业服务总线</p>
+</li>
+<li><p>微服务强调每个微服务都有自己独立的运行空间，包括数据库资源。</p>
+</li>
+<li><p>微服务架构本身来源于互联网的思路，因此组件对外发布的服务强调了采用HTTP Rest API的方式来进行</p>
+</li>
+<li><p>微服务的切分粒度会更小</p>
+</li>
+</ul>
+<p>下面的这张图，相信大家都应该看过，当然，这个图只是一部分，大家有兴趣可以看看《一个典型的微服务架构》：<a href="https://www.nginx.com/blog/introduction-to-microservices/。" target="_blank" rel="noopener">https://www.nginx.com/blog/introduction-to-microservices/。</a></p>
+<p><img src="springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud.assets/image-20200601222941061.png" alt="image-20200601222941061"></p>
+<p>简单来说，从图中可以看出，每一个应用功能区都使用微服务完成，是相互独立的，之间通过轻量级的通信协议(Http)进行服务通信，这样的话，各个应用可以按实际业务需求，选择自己的技术栈和开发语言。<br>所以可以看出，微服务的好处有：服务独立、扩展性好、可靠性强，但同时，也面临一些新的问题，比如运维复杂性，分布式复杂性、监控复杂性等等。</p>
+<h1 id="2-什么是SpringCloud"><a href="#2-什么是SpringCloud" class="headerlink" title="2.什么是SpringCloud"></a>2.什么是SpringCloud</h1><p>SpringCloud是基于SpringBoot的一整套实现微服务的框架。它提供了微服务开发所需的配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等组件。最重要的是，基于SpringBoot，会让开发微服务架构非常方便。<br>既然，本身SpringClud是一套框架,是个大管家。下图列举了一些比较核心的功能：</p>
+<p><img src="springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud.assets/image-20200601223025773.png" alt="image-20200601223025773"></p>
+<p>本身SpringCloud包含了很多的组件，下面简单列举说明下</p>
+<ul>
+<li><p>SpringCloudGateway<br>Spring Cloud Gateway是Spring官方基于Spring 5.0，Spring Boot 2.0和Project Reactor等技术开发的网关，Spring Cloud Gateway旨在为微服务架构提供一种简单而有效的统一的API路由管理方式。Spring Cloud Gateway作为Spring Cloud生态系中的网关，目标是替代Netflix ZUUL，其不仅提供统一的路由方式，并且基于Filter链的方式提供了网关基本的功能，例如：安全，监控/埋点，和限流等。</p>
+</li>
+<li><p>SpringCloudNetflix<br>这可是个大boss，地位仅次于老大，老大各项服务依赖与它，与各种Netflix OSS组件集成，组成微服务的核心，它的小弟主要有Eureka, Hystrix, Zuul… 太多了</p>
+</li>
+</ul>
+<ul>
+<li><p>Netflix Eureka<br>服务中心，云端服务发现，一个基于REST的服务，用于定位服务，以实现云端中间层服务发现和故障转移。服务中心，任何小弟需要其它小弟支持什么都需要从这里来拿，同样的你有什么独门武功的都赶紧过报道，方便以后其它小弟来调用；它的好处是你不需要直接找各种什么小弟支持，只需要到服务中心来领取，也不需要知道提供支持的其它小弟在哪里，还是几个小弟来支持的，反正拿来用就行，服务中心来保证稳定性和质量。</p>
+</li>
+<li><p>Netflix Hystrix<br>熔断器，容错管理工具，旨在通过熔断机制控制服务和第三方库的节点,从而对延迟和故障提供更强大的容错能力。比如突然某个小弟生病了，但是你还需要它的支持，然后调用之后它半天没有响应，你却不知道，一直在等等这个响应；有可能别的小弟也正在调用你的武功绝技，那么当请求多之后，就会发生严重的阻塞影响老大的整体计划。这个时候Hystrix就派上用场了，当Hystrix发现某个小弟不在状态不稳定立马马上让它下线，让其它小弟来顶上来，或者给你说不用等了这个小弟今天肯定不行，该干嘛赶紧干嘛去别在这排队了。</p>
+</li>
+<li><p>Netflix Zuul<br>Zuul是在云平台上提供动态路由,监控,弹性,安全等边缘服务的框架。Zuul 相当于是设备和Netflix流应用的 Web 网站后端所有请求的前门。当其它门派来找大哥办事的时候一定要先经过zuul,看下有没有带刀子什么的给拦截回去，或者是需要找那个小弟的直接给带过去。</p>
+</li>
+<li><p>SpringCloudConfig<br>俗称的配置中心，配置管理工具包，让你可以把配置放到远程服务器，集中化管理集群配置，目前支持本地存储、Git以及Subversion。就是以后大家武器、枪火什么的东西都集中放到一起，别随便自己带，方便以后统一管理、升级装备。</p>
+</li>
+<li><p>SpringCloudBus<br>事件、消息总线，用于在集群（例如，配置变化事件）中传播状态变化，可与Spring Cloud Config联合实现热部署。相当于水浒传中日行八百里的神行太保戴宗，确保各个小弟之间消息保持畅通。</p>
+</li>
+<li><p>SpringCloudforCloudFoundry<br>Cloud Foundry是VMware推出的业界第一个开源PaaS云平台，它支持多种框架、语言、运行时环境、云平台及应用服务，使开发人员能够在几秒钟内进行应用程序的部署和扩展，无需担心任何基础架构的问题。其实就是与CloudFoundry进行集成的一套解决方案，抱了Cloud Foundry的大腿。</p>
+</li>
+<li><p>SpringCloudCluster<br>Spring Cloud Cluster将取代Spring Integration。提供在分布式系统中的集群所需要的基础功能支持，如：选举、集群的状态一致性、全局锁、tokens等常见状态模式的抽象和实现。如果把不同的帮派组织成统一的整体，Spring Cloud Cluster已经帮你提供了很多方便组织成统一的工具。</p>
+</li>
+<li><p>SpringCloudConsul<br>Consul是一个支持多数据中心分布式高可用的服务发现和配置共享的服务软件,由 HashiCorp 公司用 Go 语言开发, 基于 Mozilla Public License 2.0 的协议进行开源. Consul 支持健康检查,并允许 HTTP 和 DNS 协议调用 API 存储键值对。Spring Cloud Consul封装了Consul操作，consul是一个服务发现与配置工具，与Docker容器可以无缝集成。</p>
+</li>
+</ul>
+<ul>
+<li>Spring Cloud Security<br>基于spring security的安全工具包，为你的应用程序添加安全控制。这个小弟很牛鼻专门负责整个帮派的安全问题，设置不同的门派访问特定的资源，不能把秘籍葵花宝典泄漏了。</li>
+<li>Spring Cloud Sleuth<br>日志收集工具包，封装了Dapper和log-based追踪以及Zipkin和HTrace操作，为SpringCloud应用实现了一种分布式追踪解决方案。</li>
+<li>Spring Cloud Data Flow<br>Data flow 是一个用于开发和执行大范围数据处理其模式包括ETL，批量运算和持续运算的统一编程模型和托管服务。<br>对于在现代运行环境中可组合的微服务程序来说，Spring Cloud data flow是一个原生云可编配的服务。使用Spring Cloud data flow，开发者可以为像数据抽取，实时分析，和数据导入/导出这种常见用例创建和编配数据通道 （data pipelines）。<br>Spring Cloud data flow 是基于原生云对 spring XD的重新设计，该项目目标是简化大数据应用的开发。Spring XD 的流处理和批处理模块的重构分别是基于 Spring Boot的stream 和 task/batch 的微服务程序。这些程序现在都是自动部署单元而且他们原生的支持像 Cloud Foundry、Apache YARN、Apache Mesos和Kubernetes 等现代运行环境。<br>Spring Cloud data flow 为基于微服务的分布式流处理和批处理数据通道提供了一系列模型和最佳实践。</li>
+<li>Spring Cloud Stream<br>Spring Cloud Stream是创建消息驱动微服务应用的框架。Spring Cloud Stream是基于Spring Boot创建，用来建立单独的／工业级spring应用，使用spring integration提供与消息代理之间的连接。数据流操作开发包，封装了与Redis,Rabbit、Kafka等发送接收消息。<br>一个业务会牵扯到多个任务，任务之间是通过事件触发的，这就是Spring Cloud stream要干的事了</li>
+<li>Spring Cloud Task<br>Spring Cloud Task主要解决短命微服务的任务管理，任务调度的工作，比如说某些定时任务晚上就跑一次，或者某项数据分析临时就跑几次。</li>
+<li>Spring Cloud Zookeeper<br>ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。ZooKeeper的目标就是封装好复杂易出错的关键服务，将简单易用的接口和性能高效、功能稳定的系统提供给用户。<br>操作Zookeeper的工具包，用于使用zookeeper方式的服务发现和配置管理，抱了Zookeeper的大腿。</li>
+<li>Spring Cloud Connectors<br>Spring Cloud Connectors简化了连接到服务的过程和从云平台获取操作的过程，有很强的扩展性，可以利用Spring Cloud Connectors来构建你自己的云平台。<br>便于云端应用程序在各种PaaS平台连接到后端，如：数据库和消息代理服务。</li>
+<li>Spring Cloud CLI<br>基于Spring Boot CLI，可以让你以命令行方式快速建立云组件。<br>题外话：这么多组件，目前用到的还比较少的⊙﹏⊙‖∣。常用的还是Netflix的全家桶。学习之路，路漫漫其修远兮！</li>
+</ul>
+<h1 id="3-为何选择SpringCloud"><a href="#3-为何选择SpringCloud" class="headerlink" title="3.为何选择SpringCloud"></a>3.为何选择SpringCloud</h1><p>微服务的框架那么多比如：dubbo，为什么就要使用Spring Cloud的呢？</p>
+<ul>
+<li><p>产出于spring大家族，spring在企业级开发框架中无人能敌，来头很大，可以保证后续的更新、完善。</p>
+</li>
+<li><p>有Spring Boot 这个独立干将可以省很多事，大大小小的活Spring Boot都搞的挺不错。</p>
+</li>
+<li><p>作为一个微服务治理的大家伙，考虑的很全面，几乎服务治理的方方面面都考虑到了，方便开发开箱即用。</p>
+</li>
+<li><p>Spring Cloud 活跃度很高，教程很丰富，遇到问题很容易找到解决方案</p>
+</li>
+<li><p>轻轻松松几行代码就完成了熔断、均衡负责、服务中心的各种平台功能.</p>
+</li>
+</ul>
+<h2 id="3-1与Dubbo对比"><a href="#3-1与Dubbo对比" class="headerlink" title="3.1与Dubbo对比"></a>3.1与Dubbo对比</h2><p><img src="springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud.assets/image-20200601223214014.png" alt="image-20200601223214014"></p>
+<p>从上图可以看出其实Dubbo的功能只是Spring Cloud体系的一部分。<br>这样对比是不够公平的，首先Dubbo是SOA时代的产物，它的关注点主要在于服务的调用，流量分发、流量监控和熔断。而Spring Cloud诞生于微服务架构时代，考虑的是微服务治理的方方面面，另外由于依托了Spirng、Spirng Boot的优势之上，两个框架在开始目标就不一致，Dubbo定位服务治理、Spirng Cloud是一个生态。<br>如果仅仅关注于服务治理的这个层面，Dubbo其实还优于Spring Cloud很多：</p>
+<ul>
+<li>Dubbo 支持更多的协议，如：rmi、hessian、http、webservice、thrift、memcached、redis 等。</li>
+<li>Dubbo 使用 RPC 协议效率更高，在极端压力测试下，Dubbo 的效率会高于 Spring Cloud 效率一倍多。</li>
+<li>Dubbo 有更强大的后台管理，Dubbo 提供的后台管理 Dubbo Admin 功能强大，提供了路由规则、动态配置、访问控制、权重调节、均衡负载等诸多强大的功能。</li>
+<li>可以限制某个 IP 流量的访问权限，设置不同服务器分发不同的流量权重，并且支持多种算法，利用这些功能我们可以在线上做灰度发布、故障转移等。</li>
+</ul>
+<p>所以Dubbo专注于服务治理；Spring Cloud关注于微服务架构生态。</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">酱油君</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dcghx.github.io/2020/05/09/springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud/">https://dcghx.github.io/2020/05/09/springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://dcghx.github.io" target="_blank">酱油村-记事录</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/springCloud/">springCloud</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/05/09/springboot-%EF%BC%883%EF%BC%89Mybatis-plus%E7%9A%84%E9%9B%86%E6%88%90%E5%92%8C%E4%BD%BF%E7%94%A8/"><img class="prev_cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">spring-boot(3)————Mybatis-plus</div></div></a></div><div class="next-post pull_right"><a href="/2020/05/09/springcloud-(2)%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0Eureka/"><img class="next_cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">springCloud————服务注册于发现Eureka</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/05/09/springcloud-(2)服务注册与发现Eureka/" title="springCloud————服务注册于发现Eureka"><img class="relatedPosts_cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-09</div><div class="relatedPosts_title">springCloud————服务注册于发现Eureka</div></div></a></div></div><div class="clear_both"></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 酱油君</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@3/instantpage.min.js" type="module"></script></body></html>

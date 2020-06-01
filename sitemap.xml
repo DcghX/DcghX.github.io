@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dcghx.github.io/2020/05/09/springcloud-(2)%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0Eureka/</loc>
+    
+    <lastmod>2020-06-01T14:47:05.409Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dcghx.github.io/2020/05/09/springcloud-(1)%E4%BB%80%E4%B9%88%E6%98%AFspringcloud/</loc>
+    
+    <lastmod>2020-06-01T14:33:10.520Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dcghx.github.io/2020/05/09/springboot-%EF%BC%883%EF%BC%89Mybatis-plus%E7%9A%84%E9%9B%86%E6%88%90%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2020-06-01T14:24:51.861Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dcghx.github.io/2020/05/09/springboot-%EF%BC%881%EF%BC%89%E5%9F%BA%E7%A1%80/</loc>
     
-    <lastmod>2020-05-31T08:32:02.899Z</lastmod>
+    <lastmod>2020-06-01T14:24:42.939Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dcghx.github.io/2020/05/09/springboot-%EF%BC%882%EF%BC%89%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2020-06-01T13:58:28.436Z</lastmod>
     
   </url>
   
